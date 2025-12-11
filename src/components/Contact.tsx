@@ -49,8 +49,8 @@ export default function Contact() {
               <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
               
               {[
-                { icon: "📧", label: "Email", value: "hamza@example.com", link: "mailto:hamza@example.com" },
-                { icon: "📱", label: "Phone", value: "+92 300 1234567", link: "tel:+923001234567" },
+                { icon: "📧", label: "Email", value: "hamzakhanpro929@gmail.com", link: "mailto:hamzakhanpro929@gmail.com" },
+                { icon: "📱", label: "Phone", value: "+92 327-5528-102", link: "tel:+923275528102" },
                 { icon: "📍", label: "Location", value: "Islamabad, Pakistan", link: "#" },
               ].map((item, i) => (
                 <motion.a

@@ -1,55 +1,63 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
+import { ExternalLink, Code, Palette } from "lucide-react";
+
+// Import your images
+import yestofy from "@/assets/yestofy 1.png";
+import wave from "@/assets/wave 2.png";
+import helpix from "@/assets/helpix 1.png";
+import pocketart from "@/assets/pocket 1.png";
 
 const projects = [
   { 
     title: "E-Commerce Platform", 
     desc: "Full-stack online store with payment integration, admin dashboard, and real-time inventory",
-    tags: ["Next.js", "TypeScript", "Stripe", "MongoDB"],
-    image: "🛒",
-    link: "#",
-    color: "from-blue-500 to-cyan-500"
+    image: yestofy,
+    link: "https://www.yestofy.com",
+    color: "from-blue-500 to-cyan-500",
+    tags: ["Next.js", "Stripe", "MongoDB"]
   },
   { 
-    title: "Social Media Dashboard", 
-    desc: "Analytics dashboard for tracking social media metrics with beautiful data visualizations",
-    tags: ["React", "D3.js", "Firebase", "Tailwind"],
-    image: "📊",
-    link: "#",
-    color: "from-purple-500 to-pink-500"
+    title: "Wave Dashboard", 
+    desc: "A full-featured business management dashboard designed for monitoring sales, revenue, expenses, products, and customer analytics.",
+    image: wave,
+    link: "https://wave-roan.vercel.app/dashboard",
+    color: "from-purple-500 to-pink-500",
+    tags: ["React", "Charts", "Analytics"]
   },
   { 
-    title: "AI Chat Application", 
-    desc: "Real-time chat app with AI-powered responses and modern messaging features",
-    tags: ["Next.js", "OpenAI", "WebSocket", "PostgreSQL"],
-    image: "💬",
-    link: "#",
-    color: "from-green-500 to-emerald-500"
+    title: "All-in-One Service Platform", 
+    desc: "Helppix.PK is Pakistan's first all-in-one service platform, offering affordable and expert quality services for homes, offices, and businesses.",
+    image: helpix,
+    link: "https://helppix-website.vercel.app/",
+    color: "from-green-500 to-emerald-500",
+    tags: ["Full-Stack", "Booking", "Services"]
   },
   { 
-    title: "Portfolio CMS", 
-    desc: "Content management system for photographers and creatives to showcase their work",
-    tags: ["React", "Supabase", "Cloudinary", "Stripe"],
-    image: "📸",
-    link: "#",
-    color: "from-orange-500 to-red-500"
+    title: "Book Promotion – Landing Page", 
+    desc: "I designed and developed a promotional landing page for Pocket Art School to highlight the author's art-learning books.",
+    image: pocketart,
+    link: "https://the-pocket-art-school.vercel.app/",
+    color: "from-orange-500 to-red-500",
+    tags: ["Landing Page", "Design", "Marketing"]
   },
   { 
     title: "Fitness Tracker", 
     desc: "Mobile-responsive fitness tracking app with workout plans and progress monitoring",
-    tags: ["Next.js", "MongoDB", "Chart.js", "PWA"],
-    image: "💪",
+    image: yestofy,
     link: "#",
-    color: "from-yellow-500 to-orange-500"
+    color: "from-yellow-500 to-orange-500",
+    tags: ["Mobile", "Health", "Tracking"]
   },
   { 
     title: "Task Management Tool", 
     desc: "Collaborative project management platform with team features and real-time updates",
-    tags: ["React", "Firebase", "TypeScript", "Drag-Drop"],
-    image: "✅",
+    image: pocketart,
     link: "#",
-    color: "from-indigo-500 to-purple-500"
+    color: "from-indigo-500 to-purple-500",
+    tags: ["Collaboration", "Real-time", "Teams"]
   },
 ];
 
@@ -59,6 +67,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-32 px-6 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
       <div className="absolute top-1/2 right-10 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -79,69 +88,105 @@ export default function Projects() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
-            <motion.a
+            <motion.div
               key={i}
-              href={project.link}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ amount: 0.3 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ y: -10 }}
               onHoverStart={() => setHoveredIndex(i)}
               onHoverEnd={() => setHoveredIndex(null)}
-              className="group relative block"
+              className="group relative"
             >
-              <div className="relative p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-500 h-full overflow-hidden">
-                {/* Animated background gradient */}
+              <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-500 overflow-hidden flex flex-col h-full">
+                
+                {/* Gradient Overlay on Hover */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: hoveredIndex === i ? 0.1 : 0 }}
-                  className={`absolute inset-0 bg-gradient-to-br ${project.color}`}
+                  className={`absolute inset-0 bg-gradient-to-br ${project.color} pointer-events-none z-10`}
                 />
                 
-                {/* Icon */}
-                <motion.div
-                  animate={{ 
-                    scale: hoveredIndex === i ? 1.1 : 1,
-                    rotate: hoveredIndex === i ? 5 : 0
-                  }}
-                  className="text-7xl mb-6 relative z-10"
-                >
-                  {project.image}
-                </motion.div>
-                
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-white mb-3 relative z-10 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-indigo-400 group-hover:to-purple-400 transition-all">
-                  {project.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-gray-400 mb-6 relative z-10 leading-relaxed">
-                  {project.desc}
-                </p>
-                
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4 relative z-10">
-                  {project.tags.map((tag, idx) => (
-                    <span 
-                      key={idx}
-                      className="px-3 py-1 bg-indigo-600/20 border border-indigo-500/30 rounded-full text-xs text-indigo-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                {/* Image Section with Overlay */}
+                <div className="relative w-full h-56 overflow-hidden">
+                  <motion.div
+                    animate={{ scale: hoveredIndex === i ? 1.1 : 1 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-full h-full"
+                  >
+                    <Image 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-fit"
+                      fill
+                    />
+                  </motion.div>
+                  
+                  {/* Dark Overlay on Image */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent" />
+                  
+                  {/* Floating Icon on Hover */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ 
+                      opacity: hoveredIndex === i ? 1 : 0,
+                      scale: hoveredIndex === i ? 1 : 0.8
+                    }}
+                    className="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-3 rounded-full border border-white/20"
+                  >
+                    <ExternalLink className="w-5 h-5 text-white" />
+                  </motion.div>
                 </div>
 
-                {/* View button */}
+                {/* Content Section */}
+                <div className="p-6 flex flex-col flex-grow relative z-20">
+                  
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, idx) => (
+                      <span 
+                        key={idx}
+                        className="text-xs px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-indigo-400 group-hover:to-purple-400 transition-all">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-gray-400 mb-6 leading-relaxed flex-grow text-sm">
+                    {project.desc}
+                  </p>
+
+                  {/* View Button */}
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-indigo-400 font-semibold hover:gap-3 transition-all group/btn"
+                  >
+                    View Project 
+                    <motion.span 
+                      animate={{ x: hoveredIndex === i ? 5 : 0 }}
+                      className="text-xl"
+                    >
+                      →
+                    </motion.span>
+                  </a>
+                </div>
+
+                {/* Bottom Border Effect */}
                 <motion.div
-                  animate={{ x: hoveredIndex === i ? 5 : 0 }}
-                  className="flex items-center gap-2 text-indigo-400 font-semibold relative z-10"
-                >
-                  View Project 
-                  <span className="text-xl">→</span>
-                </motion.div>
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: hoveredIndex === i ? 1 : 0 }}
+                  className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${project.color} origin-left`}
+                />
+
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>
