@@ -9,6 +9,7 @@ import yestofy from "@/assets/yestofy 1.png";
 import wave from "@/assets/wave 2.png";
 import helpix from "@/assets/helpix 1.png";
 import pocketart from "@/assets/pocket 1.png";
+import healthcare from "@/assets/healthcare.png";
 
 const projects = [
   { 
@@ -44,10 +45,10 @@ const projects = [
     tags: ["Landing Page", "Design", "Marketing"]
   },
   { 
-    title: "Fitness Tracker", 
-    desc: "Mobile-responsive fitness tracking app with workout plans and progress monitoring",
-    image: yestofy,
-    link: "#",
+    title: "Doctor Appointment Booking Platform", 
+    desc: "A fully functional medical services platform that allows users to find doctors, explore services, and book appointments online. Includes responsive UI, modern design, secure authentication, and a smooth user experience",
+    image: healthcare,
+    link: "https://health-care-liart.vercel.app/",
     color: "from-yellow-500 to-orange-500",
     tags: ["Mobile", "Health", "Tracking"]
   },
