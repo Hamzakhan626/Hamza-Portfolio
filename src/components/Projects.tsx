@@ -46,7 +46,7 @@ const projects = [
   },
   { 
     title: "Doctor Appointment Booking Platform", 
-    desc: "A fully functional medical services platform that allows users to find doctors, explore services, and book appointments online. Includes responsive UI, modern design, secure authentication, and a smooth user experience",
+    desc: "To create a simple, trustworthy, and user-friendly platform where patients can easily find doctors and book appointments online",
     image: healthcare,
     link: "https://health-care-liart.vercel.app/",
     color: "from-yellow-500 to-orange-500",
