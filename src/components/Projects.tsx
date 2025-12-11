@@ -18,7 +18,7 @@ const projects = [
     image: yestofy,
     link: "https://www.yestofy.com",
     color: "from-blue-500 to-cyan-500",
-    tags: ["Next.js", "Stripe", "MongoDB"]
+    tags: ["e-commerce", "Payment Integration", "Admin Dashboard"]
   },
   { 
     title: "Wave Dashboard", 
@@ -26,7 +26,7 @@ const projects = [
     image: wave,
     link: "https://wave-roan.vercel.app/dashboard",
     color: "from-purple-500 to-pink-500",
-    tags: ["React", "Charts", "Analytics"]
+    tags: ["Dashboard", "Charts", "Analytics"]
   },
   { 
     title: "All-in-One Service Platform", 
@@ -34,7 +34,7 @@ const projects = [
     image: helpix,
     link: "https://helppix-website.vercel.app/",
     color: "from-green-500 to-emerald-500",
-    tags: ["Full-Stack", "Booking", "Services"]
+    tags: [ "Booking", "Services", "Marketplace"]
   },
   { 
     title: "Book Promotion – Landing Page", 
@@ -50,7 +50,7 @@ const projects = [
     image: healthcare,
     link: "https://health-care-liart.vercel.app/",
     color: "from-yellow-500 to-orange-500",
-    tags: ["Mobile", "Health", "Tracking"]
+    tags: [ "Health", "appointment", "Tracking"]
   },
   { 
     title: "Task Management Tool", 

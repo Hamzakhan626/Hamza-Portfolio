@@ -1,35 +1,44 @@
 "use client";
 import { motion } from "framer-motion";
 
-const testimonials = [
+const achievements = [
   {
-    name: "Sarah Johnson",
-    role: "CEO, TechStart Inc",
-    content: "Hamza delivered an exceptional website that exceeded our expectations. His attention to detail and technical expertise are outstanding.",
-    avatar: "👩‍💼",
-    rating: 5
+    title: "Individual Projects",
+    content: "Completed 6+ personal projects showcasing full-stack development and UI/UX skills.",
+    icon: "💻"
   },
   {
-    name: "Michael Chen",
-    role: "Product Manager, InnovateLab",
-    content: "Working with Hamza was a pleasure. He transformed our complex requirements into a beautiful, intuitive application.",
-    avatar: "👨‍💻",
-    rating: 5
+    title: "Team Projects Contributed",
+    content: "Contributed to 50+ projects in a software house, collaborating with developers, designers, and project managers.",
+    icon: "🤝"
   },
   {
-    name: "Emily Rodriguez",
-    role: "Founder, CreativeHub",
-    content: "Hamza's expertise in modern web technologies helped us launch our platform ahead of schedule. Highly recommended!",
-    avatar: "👩‍🎨",
-    rating: 5
+    title: "Code Commits",
+    content: "Over 1000+ commits demonstrating consistent contribution and code quality.",
+    icon: "📝"
+  },
+  {
+    title: "Skills Mastered",
+    content: "React, Next.js, Tailwind CSS, Firebase, and modern web development practices.",
+    icon: "⚡"
+  },
+  {
+    title: "Problem Solving",
+    content: "Effectively solved complex technical challenges in both individual and team projects.",
+    icon: "🧩"
+  },
+  {
+    title: "Learning & Growth",
+    content: "Continually improving by learning new tools, frameworks, and best practices.",
+    icon: "🚀"
   },
 ];
 
-export default function Testimonials() {
+export default function Achievements() {
   return (
     <section className="py-32 px-6 bg-black relative overflow-hidden">
       <div className="absolute top-20 left-1/2 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl" />
-      
+
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -38,14 +47,14 @@ export default function Testimonials() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <span className="text-indigo-400 font-semibold text-sm tracking-wider uppercase">Testimonials</span>
+          <span className="text-indigo-400 font-semibold text-sm tracking-wider uppercase">Achievements</span>
           <h2 className="text-5xl md:text-6xl font-bold mt-4 bg-gradient-to-r from-white via-indigo-200 to-purple-400 bg-clip-text text-transparent">
-            What Clients Say
+            My Contributions & Skills
           </h2>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, i) => (
+          {achievements.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 50 }}
@@ -55,26 +64,12 @@ export default function Testimonials() {
               whileHover={{ y: -10, scale: 1.02 }}
               className="p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-500"
             >
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, idx) => (
-                  <span key={idx} className="text-yellow-400 text-xl">★</span>
-                ))}
-              </div>
-              
+              {/* Icon */}
+              <div className="text-5xl mb-4">{item.icon}</div>
+
               {/* Content */}
-              <p className="text-gray-300 mb-6 leading-relaxed italic">
-                "{testimonial.content}"
-              </p>
-              
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                <div className="text-5xl">{testimonial.avatar}</div>
-                <div>
-                  <h4 className="text-white font-semibold">{testimonial.name}</h4>
-                  <p className="text-gray-400 text-sm">{testimonial.role}</p>
-                </div>
-              </div>
+              <h4 className="text-white font-semibold text-xl mb-2">{item.title}</h4>
+              <p className="text-gray-300 text-sm leading-relaxed">{item.content}</p>
             </motion.div>
           ))}
         </div>

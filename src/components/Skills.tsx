@@ -3,33 +3,69 @@ import { motion } from "framer-motion";
 
 const skillCategories = [
   {
-    category: "Frontend",
+    category: "Frontend Development",
     skills: [
-      { name: "React", level: 95 },
-      { name: "Next.js", level: 90 },
-      { name: "TypeScript", level: 85 },
+      { name: "Next.js", level: 95 },
+      { name: "React.js", level: 92 },
+      { name: "JavaScript (ES6+)", level: 90 },
+      { name: "TypeScript", level: 88 },
       { name: "Tailwind CSS", level: 95 },
+      { name: "HTML5 & CSS3", level: 90 },
+      { name: "Responsive Design", level: 95 },
+      { name: "Accessibility (ARIA)", level: 85 },
+      { name: "Client-Side Caching (React Query / SWR)", level: 88 },
+      { name: "Component Architecture", level: 90 },
+      { name: "State Management (Redux / Zustand)", level: 92 },
+      { name: "Form Handling (Formik / React Hook Form)", level: 90 },
     ]
   },
+
   {
-    category: "Backend",
+    category: "Backend & Databases",
     skills: [
       { name: "Node.js", level: 85 },
-      { name: "Express", level: 80 },
-      { name: "MongoDB", level: 85 },
-      { name: "PostgreSQL", level: 75 },
+      { name: "Express.js", level: 82 },
+      { name: "MongoDB", level: 88 },
+      { name: "PostgreSQL", level: 80 },
+      { name: "Supabase", level: 80 },
+      { name: "Firebase (Auth, Firestore, Storage)", level: 95 },
+      { name: "REST API Development", level: 88 },
+      { name: "API Integration", level: 92 },
+      { name: "Authentication (JWT, Session, OAuth)", level: 88 },
+      { name: "Role-Based Authorization", level: 85 },
     ]
   },
+
   {
-    category: "Tools & Others",
+    category: "Performance, SEO & Optimization",
     skills: [
-      { name: "Git", level: 90 },
-      { name: "Docker", level: 70 },
-      { name: "AWS", level: 65 },
-      { name: "Figma", level: 85 },
+      { name: "Code Splitting / Lazy Loading", level: 90 },
+      { name: "React Performance Optimization", level: 92 },
+      { name: "Next.js Server Components", level: 85 },
+      { name: "Next.js SEO (Metadata / OG Tags)", level: 90 },
+      { name: "Structured Data (Schema.org)", level: 85 },
+      { name: "Error Boundaries & Fallback UI", level: 88 },
+      { name: "Image Optimization", level: 92 },
+      { name: "Caching Strategies", level: 86 },
     ]
   },
+
+  {
+    category: "Tools & Workflow",
+    skills: [
+      { name: "Git & GitHub", level: 92 },
+      { name: "CI/CD Basics", level: 75 },
+      { name: "Package Managers (npm, yarn, pnpm)", level: 90 },
+      { name: "Project Architecture Planning", level: 88 },
+      { name: "Figma (UI/UX)", level: 85 },
+      { name: "Canva", level: 88 },
+      { name: "Testing (Jest / React Testing Library)", level: 70 },
+      { name: "Version Control Workflow", level: 92 },
+      { name: "Debugging / DevTools", level: 90 },
+    ]
+  }
 ];
+
 
 export default function Skills() {
   return (
@@ -50,30 +86,34 @@ export default function Skills() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-2 gap-12">
           {skillCategories.map((category, catIndex) => (
             <motion.div
               key={catIndex}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ amount: 0.3 }}
-              transition={{ duration: 0.6, delay: catIndex * 0.2 }}
+              viewport={{ amount: 0.2 }}
+              transition={{ duration: 0.6, delay: catIndex * 0.1 }}
+              className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-800/50 rounded-2xl p-8 hover:border-indigo-500/30 transition-all duration-300"
             >
-              <h3 className="text-2xl font-bold mb-8 text-indigo-400">{category.category}</h3>
+              <h3 className="text-2xl font-bold mb-6 text-indigo-400 flex items-center gap-2">
+                <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                {category.category}
+              </h3>
               
-              <div className="space-y-6">
+              <div className="space-y-5">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-gray-300 font-medium">{skill.name}</span>
-                      <span className="text-indigo-400">{skill.level}%</span>
+                    <div className="flex justify-between mb-1.5">
+                      <span className="text-gray-300 font-medium text-sm">{skill.name}</span>
+                      <span className="text-indigo-400 text-sm font-semibold">{skill.level}%</span>
                     </div>
-                    <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-gray-800/80 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ amount: 0.3 }}
-                        transition={{ duration: 1, delay: catIndex * 0.2 + skillIndex * 0.1 }}
+                        viewport={{ amount: 0.2 }}
+                        transition={{ duration: 1, delay: catIndex * 0.1 + skillIndex * 0.05 }}
                         className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
                       />
                     </div>
